@@ -1,0 +1,101 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+\usepackage{fullpage}
+\usepackage{fourier}
+\usepackage{xspace}
+\usepackage{booktabs}
+\usepackage{wrapfig}
+
+\title{Assignment 1 DESIGN.pdf}
+\author{Victor Nguyen}
+
+\begin{document}\maketitle
+
+\section{Description of Program:}
+This bash script uses the collatz.c file (provided by the professor) to produce 3 distinct graphs
+about the collatz sequence.
+
+
+\section{Files to be included in directory "asgn1":}
+
+\begin{enumerate}
+    \item
+    plot.sh
+    \begin{itemize}
+        \item
+        Script to produce the 3 collatz graphs
+    \end{itemize}
+
+    \item
+    collatz.c
+    \begin{itemize}
+        \item
+        The c code that generates any given collatz sequence if specified.
+    \end{itemize}
+
+    \item
+    Makefile
+    \begin{itemize}
+        \item
+        A file that can execute shell commands (makes it easier to clean up and build other files)
+    \end{itemize}
+
+    \item
+    README.md
+    \begin{itemize}
+        \item
+        Text file in markdown format that describes how to build and run the script. 
+    \end{itemize}
+
+    \item
+    DESIGN.tex
+    \begin{itemize}
+        \item
+        .tex file that contains the source code of this .pdf file.
+    \end{itemize}
+
+    \item
+    WRITEUP.tex
+    \begin{itemize}
+        \item
+        .tex file that contains the source code for the WRITEUP.pdf file.
+    \end{itemize}
+\end{enumerate}
+
+
+\section{Pseudocode / Structure:}
+
+To begin generating the collatz sequence lengths, we need a for loop that starts at the number 
+2 and iterates to the value 10000. Inside the for loop, I need to run the collatz c program 
+and generate the current collatz sequence in the iteration. With that I want to count the lines 
+generated from this specific collatz sequence and store this value inside a temporary .dat file 
+(along side with the iteration number). This .dat file should contain the iteration number on 
+the x axis and the length of each number on the y axis.
+
+\noindent For the second graph, where we need to find the maximum collatz sequence value, my idea
+is to create another for loop that starts at 2 and iterates to 10000. Inside the for loop, I would 
+need to run the collatz program and sort the numbers numerically. When it's sorted I want to grab 
+the highest value, contained in that file and concatenate that number with the iteration number 
+into another file that will be used as data for the plot.
+
+\noindent The third graph, which wants a histogram of the collatz sequence length reoccurrences, 
+will require another for loop that starts at 2 and iterates to 10000. Inside the for loop, I need 
+to run collatz program to generate the sequences of each number, sort the values, and grab the 
+highest value in each iteration and store it into a file. Afterwards, I need to sort this new file 
+and count the occurrences of the same number appearing each time, and store it into a .dat file that would be used as data points for the third graph.
+
+\section{Error Handling:}
+
+I used many of the example files that were provided by the class through the resources repo. 
+Learning syntax was the main culprit when I ran into errors. I debugged and read through manuals 
+to fix most of those problems.
+
+\section{Credit:}
+
+The asgn1.pdf that was provided by the professor had some example codes that really helped me. 
+Particularly the sort, awk, and uniq commands helped during the process.
+
+\noindent I attended Eugene's section where he helped answer a few questions of mine regarding 
+syntax. He also helped me understand Makefiles, the collatz.c program, and scripting. 
+
+\end{document}
